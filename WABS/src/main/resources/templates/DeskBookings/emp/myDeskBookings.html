@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerEmployee :: headerEmployee}" th:with="title='Arbeitsplatz Buchen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarEmployee :: topbarEmployee}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarEmployee :: navbarEmployee}"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="allRessourceContainer">
+        <h1>Meine Arbeitsplatzbuchungen</h1><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Arbeitsplatz</th>
+                    <th>Datum</th>
+                    <th>Start</th>
+                    <th>Ende</th>
+                    <th>Erstellt Am</th>
+                    <th>Zuletzt Bearbeitet Am</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="booking: ${myBookings}" th:id="'bookingRow-' + ${booking.id}">
+                    <tr>
+                    <td th:text="${booking.desk.deskNr}"></td>
+                    <td th:text="${#temporals.format(booking.date, 'MMMM d, yyyy')}"></td>
+                    <td th:text="${#temporals.format(booking.start, 'hh:mm a')}"></td>
+                    <td th:text="${#temporals.format(booking.endTime, 'hh:mm a')}"></td>
+                    <td th:text="${#temporals.format(booking.getCreatedOn, 'MMMM d, yyyy, hh:mm a')}"></td>
+                    <td th:text="${#temporals.format(booking.getUpdatedOn, 'MMMM d, yyyy, hh:mm a')}"></td>
+                    <td>
+                        <a class="button" role="button" th:href="@{/web/deskbookings/view/{id}(id=${booking.id})}">Anzeigen</a>
+                        <a class="button" role="button" th:href="@{/web/deskbookings/update/{id}(id=${booking.id})}">Bearbeiten</a>
+                        <a class="delete-button" role="button" th:href="@{/web/deskbookings/cancel/{id}(id=${booking.id})}">Stornieren</a>
+                    </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <a class="button" role="button" th:href="@{/web/deskbookings/add}">Neue Buchung</a>
+            <a th:href="@{/web/desks}" class="button" role="button">Alle Arbeitsplätze</a>
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+    <div class="filler"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Mitarbeiterliste'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Mitarbeiterverzeichnis</h1><br><br>
+        <div class="scroll-container">
+            <div>
+                <form th:action="@{/web/employees/employeeswithnick}" method="post">
+                    <div class="form-group">
+                        <label for="nickname">Suche nach Nickname: </label>
+                        <input type="text" id="nickname" name="nickname"/>
+                        <button class="button" name="submit" type="submit">Suche</button>
+                    </div>
+                </form>
+                <table>
+                    <th:block th:each="employee : ${employeesnick}">
+                        <tr>
+                            <td th:text="${employee.id}">...</td>
+                            <td th:text="${employee.fname}">...</td>
+                            <td th:text="${employee.lname}">...</td>
+                            <td th:text="${employee.nick}">...</td>
+                            <td th:text="${employee.role}">...</td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+        <div class="button-row">
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

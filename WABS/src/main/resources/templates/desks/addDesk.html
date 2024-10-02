@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerAdmin :: headerAdmin}" th:with="title='Tisch erstellen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarAdmin :: topbarAdmin}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarAdmin :: navbarAdmin}"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatz Erstellen</h1><br><br>
+        <div class="scroll-container">
+            <form method="post" th:action="@{/web/desks/add}" th:object="${desk}">
+                <div class="form-group">
+                    <label for="deskNr">Arbeitsplatz</label>
+                    <small style="color: #96c01e;">Wähl ein Desk aus der Liste</small>
+                    <input class="form-control" id="deskNr" name="deskNr" th:field="*{deskNr}" type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{deskNr}"
+                         th:if="${#fields.hasErrors('deskNr')}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="nrOfMonitors">Bildschirme</label>
+                    <small style="color: #96c01e;">Geben Sie die Anzahl der Monitore ein (zwischen 1 und 10)</small>
+                    <input class="form-control" id="nrOfMonitors" name="nrOfMonitors" th:field="*{nrOfMonitors}"
+                           type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{nrOfMonitors}"
+                         th:if="${#fields.hasErrors('nrOfMonitors')}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="ports">Schnittstellen</label>
+                    <small style="color: #96c01e;">Geben Sie die verfügbaren Schnittstellen, durch ein Komma getrennt, ein.</small>
+                    <input class="form-control" id="ports" name="ports" th:field="*{ports}" type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{ports}"
+                         th:if="${#fields.hasErrors('ports')}"></div>
+                </div>
+                <div class="button-row">
+                    <button class="button" type="submit">Erstellen</button>
+                    <button class="delete-button" onclick="goBack()">Zurück</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

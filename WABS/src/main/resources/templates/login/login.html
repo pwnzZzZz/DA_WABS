@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/WABS.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Font Awesome 4-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/sidebar-accordion.css">
+    <script src="/static/js/sidebar-accordion.js"></script>
+    <script src="/static/js/DropDown.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/../static/css/WABS.css">
+    <style>
+        body {
+            background-image: url("/static/img/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+<img class="logo" src="/../static/img/LogoWhite.png" alt="">
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>W.A.B.S.</h1>
+        <h2>Work-Area Booking System</h2><br><br>
+        <form method="post" th:action="@{/web/login}" th:error="${#fields.errors()}">
+            <h3>Benutzername</h3>
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+            </div>
+            <h3>Passwort</h3>
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort"
+                       required>
+            </div>
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                <span th:text="${error}"></span>
+            </div>
+            <div class="button-container">
+                <button class="button" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

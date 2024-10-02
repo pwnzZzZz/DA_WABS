@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Ressourcenliste'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="allRessourceContainer">
+        <h1>Ressourcenliste</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Kategorie</th>
+                    <th>Beschreibung</th>
+                    <th>Info</th>
+                    <th>Seriennummer</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="ressource : ${ressources}">
+                    <tr>
+                        <td th:text="${ressource.id}"></td>
+                        <td th:text="${ressource.name}"></td>
+                        <td th:text="${ressource.ressourcetype}"></td>
+                        <td th:text="${ressource.description}"></td>
+                        <td th:text="${ressource.info}"></td>
+                        <td th:text="${ressource.serialnumber}"></td>
+                        <td>
+                            <a th:href="@{'/web/ressourceBooking/createBooking/' + ${ressource.id}}" class="button"
+                               role="button">Buchen</a>
+                            <a th:href="@{'/web/ressource/updateRessource/' + ${ressource.id}}" class="button"
+                               role="button">Bearbeiten</a>
+                            <a th:href="@{/web/ressource/deleteRessource/{id}(id=${ressource.id})}"
+                               class="delete-button" role="button">Löschen</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <a th:href="@{/web/ressource/addRessource}" class="add-button" role="button">neue Ressource</a>
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

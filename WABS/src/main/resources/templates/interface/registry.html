@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        .checkbox-field {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-field label {
+            margin-left: 10px;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #96c01e;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-link {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-image: url('/static/img/background.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 80px;
+            margin: 0;
+        }
+
+        .header h2 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: auto;
+        }
+
+        .login-box, .register-box {
+            width: 25%;
+            height: auto;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .login-box {
+            background-color: #96c01e;
+        }
+
+        .register-box {
+            background-color: #00b8eb;
+        }
+
+        .form-field label {
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        .form-field input {
+            display: inline-block;
+            width: calc(100% - 160px);
+        }
+
+        form {
+            width: 40%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #96c01e;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="reset"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #00b8eb;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<img class="logo" src="/static/img/LogoWhite.png">
+<div class="header">
+    <h1>W.A.B.S.</h1>
+    <h2>Work-Area Booking System</h2>
+</div>
+<div class="container">
+    <form class="form" action="#" method="post">
+        <h3>Register</h3>
+        <div class="form-field">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+        </div>
+        <div class="form-field">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+        </div>
+        <div class="form-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-field">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <div class="form-field">
+            <input type="checkbox" id="accept-terms" name="accept-terms" required>
+            <label for="accept-terms">I accept the terms and conditions</label>
+        </div>
+        <div class="form-field">
+            <button type="submit">Register</button>
+            <button type="reset" href="start.html">Back</button>
+        </div>
+    </form>
+</div>
+</body>

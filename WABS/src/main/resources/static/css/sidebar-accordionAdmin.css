@@ -1,0 +1,222 @@
+/* Gemeinsame CSS-Regeln */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("/static/img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btnMenu {
+    display: none;
+    padding: 20px;
+    display: block;
+    background: #96c01e;
+    color: #fff;
+}
+
+.btnMenu i.fa {
+    float: right;
+}
+
+.contenedor-menu {
+    position: fixed;
+    top: 10vh;
+    left: auto;
+    background-color: #424242;
+    width: 100px;
+    overflow-y: auto;
+}
+
+.contenedor-menu .menu {
+    width: 100%;
+}
+
+.contenedor-menu ul {
+    list-style: none;
+}
+
+.contenedor-menu .menu li a {
+    color: #494949;
+    display: block;
+    padding: 25px 20px;
+    background: #e9e9e9;
+}
+
+.contenedor-menu .menu li a:hover {
+    background: #00b8eb;
+    color: #fff;
+}
+
+.contenedor-menu .menu i.fa {
+    font-size: 12px;
+    line-height: 18px;
+    float: right;
+    margin-left: 10px;
+}
+
+
+.contenedor-menu .menu ul {
+    display: none;
+}
+
+.contenedor-menu .menu ul li a {
+    background: #424242;
+    color: #e9e9e9;
+}
+
+.contenedor-menu .menu .activado > a {
+    background: #00b8eb;
+    color: #fff;
+}
+
+
+/* Fülle leeren Bereich unter Sidebar */
+.filler {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #e9e9e9;
+    z-index: -1;
+    opacity: 50%;
+}
+
+/* Responsive Anpassungen */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .contenedor-menu {
+        position: relative;
+        top: 100px;
+        left: auto;
+        background-color: #424242;
+        width: 1%;
+        min-width: 100px;
+        overflow-y: auto;
+    }
+
+    .filler {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100px;
+        background-color: #e9e9e9;
+        z-index: -1;
+    }
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+    .contenedor-menu {
+        position: relative;
+        top: 100px;
+        left: auto;
+        background-color: #424242;
+        width: 5%;
+        min-width: 150px;
+        overflow-y: auto;
+    }
+
+    .filler {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 150px;
+        background-color: #e9e9e9;
+        z-index: -1;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .contenedor-menu {
+        position: relative;
+        top: 100px;
+        left: auto;
+        background-color: #424242;
+        width: 6%;
+        min-width: 200px;
+        overflow-y: auto;
+    }
+
+    .filler {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 200px;
+        background-color: #e9e9e9;
+        z-index: -1;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .contenedor-menu {
+        position: relative;
+        top: 100px;
+        left: auto;
+        background-color: #424242;
+        width: 8%;
+        min-width: 250px;
+        overflow-y: auto;
+    }
+
+    .filler {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #e9e9e9;
+        z-index: -1;
+    }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .contenedor-menu {
+        position: relative;
+        top: 100px;
+        left: auto;
+        background-color: #424242;
+        width: 10%;
+        min-width: 300px;
+        overflow-y: auto;
+    }
+
+    .filler {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 300px;
+        background-color: #e9e9e9;
+        z-index: -1;
+    }
+
+}

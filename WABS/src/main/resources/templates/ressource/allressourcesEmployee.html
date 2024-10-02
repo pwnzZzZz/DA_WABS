@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerEmployee :: headerEmployee" th:with="title='Ressourcenliste'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarEmployee :: topbarEmployee"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarEmployee :: navbarEmployee"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="allRessourceContainer">
+        <h1>Ressourcenliste</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Kategorie</th>
+                    <th>Beschreibung</th>
+                    <th>Info</th>
+                    <th>Seriennummer</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="ressource : ${ressourcesEmployee}">
+                    <tr>
+                        <td th:text="${ressource.id}"></td>
+                        <td th:text="${ressource.name}"></td>
+                        <td th:text="${ressource.ressourcetype}"></td>
+                        <td th:text="${ressource.description}"></td>
+                        <td th:text="${ressource.info}"></td>
+                        <td th:text="${ressource.serialnumber}"></td>
+                        <td>
+                            <a th:href="@{/web/ressourceBooking/createBookingEmployee/{id}(id=${ressource.id})}"
+                               class="button" role="button">Buchen</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerEmployee :: headerEmployee" th:with="title='Alle Arbeitsplätze'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarEmployee :: topbarEmployee"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarEmployee :: navbarEmployee"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="subcontainer">
+        <h1>Arbeitsplätze</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Arbeitsplatz</th>
+                    <th>Bildschirm</th>
+                    <th>Schnittstelle</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="desk: ${viewAllDesks}">
+                    <td th:text="${desk.deskNr}"></td>
+                    <td th:text="${desk.nrOfMonitors}"></td>
+                    <td><p th:each="port : ${desk.ports}" th:text="${port.name}"></p></td>
+                    <td>
+                        <a class="button" role="button" th:href="@{/web/deskbookings/admin/new/{deskId}(deskId=${desk.id})}">Buchen</a>
+                        <a class="button" role="button" th:href="@{/web/desks/view/{id}(id=${desk.id})}">Details</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

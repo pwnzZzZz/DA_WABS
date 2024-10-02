@@ -1,0 +1,461 @@
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+select {
+    border-radius: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.error-message {
+    color: red;
+}
+
+.addRessourceContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px; /*Abrundung der Box*/
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin-top: 100px;
+}
+
+.addRessourceContainer h1 {
+    text-align: center;
+}
+
+
+.imgmapContainer {
+    max-width: 80%;
+    max-height: 50vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.button-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #96c01e;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.top-barAdmin {
+    background-color: #00b8eb;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 200px;
+    height: auto;
+}
+
+/* Settings-Link */
+.settings-link {
+    position: absolute;
+    top: 60px;
+    right: 110px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Logout-Link */
+.logout-link {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* TopBar-Header */
+.top-bar-header {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.top-bar-header h1 {
+    font-size: 50px;
+    color: white;
+}
+
+/* TopBar-SubHeader */
+.top-bar-sub-header {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.top-bar-sub-header h2 {
+    font-size: 16px;
+    color: white;
+}
+
+.scroll-container {
+    overflow-y: scroll;
+    max-height: 60vh;
+}
+
+.content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Anpassen der Breite des Content-Containers */
+    min-width: 300px; /* Mindestbreite des Content-Containers */
+
+    height: 90vh; /* Höhe des Content-Containers */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background-color: floralwhite;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+
+.button {
+    background-color: #96c01e;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.add-button {
+    background-color: #96c01e;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.delete-button {
+    background-color: #00b8eb;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #00b8eb;
+}
+
+.delete-button:hover,
+.delete-button:focus {
+    background-color: #00b8eb;
+}
+
+.add-button:hover,
+.add-button:focus {
+    background-color: #00b8eb;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.background {
+    background-image: url("/static/img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .logo {
+        width: 150px;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .top-bar-header {
+        top: 30%;
+    }
+
+    .top-bar-header h1 {
+        font-size: 18px;
+    }
+
+    .top-bar-sub-header {
+        top: 60%;
+    }
+
+    .top-bar-sub-header h2 {
+        font-size: 12px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+    .logo {
+        width: 180px;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .top-bar-header {
+        top: 35%;
+    }
+
+    .top-bar-header h1 {
+        font-size: 24px;
+    }
+
+    .top-bar-sub-header {
+        top: 65%;
+    }
+
+    .top-bar-sub-header h2 {
+        font-size: 14px;
+    }
+
+    label {
+        display: block;
+        font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    input,
+    label {
+        margin: 0.4rem 0;
+    }
+
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .logo {
+        width: 200px;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .top-bar-header {
+        top: 40%;
+    }
+
+    .top-bar-header h1 {
+        font-size: 30px;
+    }
+
+    .top-bar-sub-header {
+        top: 70%;
+    }
+
+    .top-bar-sub-header h2 {
+        font-size: 16px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .logo {
+        width: 200px;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .top-bar-header {
+        top: 45%;
+    }
+
+    .top-bar-header h1 {
+        font-size: 40px;
+    }
+
+    .top-bar-sub-header {
+        top: 75%;
+    }
+
+    .top-bar-sub-header h2 {
+        font-size: 18px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .logo {
+        width: 200px;
+    }
+
+    .top-bar-header {
+        top: 50%;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .top-bar-header h1 {
+        font-size: 50px;
+    }
+
+    .top-bar-sub-header {
+        top: 80%;
+    }
+
+    .top-bar-sub-header h2 {
+        font-size: 20px;
+    }
+}

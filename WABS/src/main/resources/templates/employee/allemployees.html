@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Mitarbeiterliste'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="allEmployee-Container">
+        <h1>Mitarbeiterverzeichnis</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Vorname</th>
+                    <th>Nachname</th>
+                    <th>Alias</th>
+                    <th>Rolle</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <th:block th:each="employee : ${employees}">
+                    <tr>
+                        <td th:text="${employee.id}">...</td>
+                        <td th:text="${employee.fname}">...</td>
+                        <td th:text="${employee.lname}">...</td>
+                        <td th:text="${employee.nick}">...</td>
+                        <td th:text="${#strings.substringAfter(employee.role, '_')}">...</td>
+                        <td>
+                            <a th:href="@{/web/admin/editemployee/{id}(id=${employee.id})}" class="button"
+                               role="button">Bearbeiten</a>
+                            <a th:href="@{/web/admin/deleteemployee/{id}(id=${employee.id})}" class="delete-button"
+                               role="button">Löschen</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+        <div class="button-row">
+            <a class="add-button" th:href="@{/web/admin/insertemployeeform}">neuer Mitarbeiter</a>
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

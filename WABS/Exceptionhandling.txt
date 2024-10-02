@@ -1,0 +1,65 @@
+package com.itkolleg.bookingsystem.controller;
+
+import com.itkolleg.bookingsystem.domains.ErrorDetails;
+import com.itkolleg.bookingsystem.exceptions.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ControllerAdvice
+public class GlobalExceptionController {
+
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionController.class);
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ErrorDetails handleEmployeeNotFound(EmployeeNotFoundException ex) {
+        logger.error("EmployeeNotFoundException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Employee Not Found", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    @ExceptionHandler(EmployeeValidationException.class)
+    public ErrorDetails handleEmployeeValidation(EmployeeValidationException ex) {
+        logger.error("EmployeeValidationException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Employee Validation Error", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EmployeeAlreadyExistsException.class)
+    public ErrorDetails handleEmployeeAlreadyExists(EmployeeAlreadyExistsException ex) {
+        logger.error("EmployeeAlreadyExistsException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Employee Already Exists", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ErrorDetails handleResourceNotFound(ResourceNotFoundException ex) {
+        logger.error("ResourceNotFoundException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Resource Not Found", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(DeskNotAvailableException.class)
+    public ErrorDetails handleDeskNotAvailable(DeskNotAvailableException ex) {
+        logger.error("DeskNotAvailableException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Desk Not Available", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    public ErrorDetails handleEmptyResultDataAccess(EmptyResultDataAccessException ex) {
+        logger.error("EmptyResultDataAccessException: {}", ex.getMessage(), ex);
+        return new ErrorDetails("No Data Found", ex.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public ErrorDetails handleGeneralException(Exception ex) {
+        logger.error("Exception: {}", ex.getMessage(), ex);
+        return new ErrorDetails("Unknown Exception", "An unexpected error occurred.");
+    }
+}

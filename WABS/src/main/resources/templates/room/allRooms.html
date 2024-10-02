@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Liste aller Räume'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<!-- Content -->
+<div class="content-container">
+    <div class="allroomsContainer">
+        <h1>Raumliste</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Stockwerk</th>
+                    <th> Info</th>
+                    <th> Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="room : ${rooms}">
+                    <tr>
+                        <td th:text="${room.id}"></td>
+                        <td th:text="${room.floor}"></td>
+                        <td th:text="${room.info}"></td>
+                        <td>
+                            <a th:href="@{'/web/roomBooking/createBooking/' + ${room.id}}" class="button" role="button">Buchen</a>
+                            <a th:href="@{'/web/rooms/updateRoom/' + ${room.id}}" class="button" role="button">Bearbeiten</a>
+                            <a th:href="@{'/web/rooms/deleteRoom/' + ${room.id}}" class="delete-button" role="button">Löschen</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <a th:href="@{/web/rooms/addRoom}" class="add-button" role="button">neuer Raum</a>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

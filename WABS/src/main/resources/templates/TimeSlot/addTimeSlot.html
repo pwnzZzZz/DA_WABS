@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='New Time Slot'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Neue Zeitraum Erstellen</h1><br><br>
+            <form method="post" th:action="@{/web/timeslots/add}" th:object="${timeslot}">
+                <div class="form-group">
+                    <label for="name">Arbeitsplatz</label>
+                    <input class="form-control" id="name" name="name" th:field="*{name}" type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{name}"
+                         th:if="${#fields.hasErrors('name')}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="start">Start</label>
+                    <input class="form-control" id="start" name="start" th:field="*{startTime}"
+                           type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{startTime}"
+                         th:if="${#fields.hasErrors('start')}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="end">End</label>
+                    <input class="form-control" id="end" name="end" th:field="*{endTime}" type="text">
+                    <div class="form-text" th:errorclass="errors" th:errors="*{endTime}"
+                         th:if="${#fields.hasErrors('end')}"></div>
+                </div>
+                <div class="button-row">
+                    <button class="button" type="submit">Erstellen</button>
+                    <a class="delete-button" role="button" th:href="@{/web/timeslots}">Zurück</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

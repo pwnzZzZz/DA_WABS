@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Zeitraum Löschen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Zeitraum Löschen</h1><br><br>
+        <form method="post" th:action="@{/web/timeslots/update/{id}(id=${updatedTimeslot.id})}" th:object="${updatedTimeslot}">
+            <div th:if="${errorMessage}" class="alert alert-danger error-message">
+                <p th:text="${errorMessage}"></p>
+            </div>
+            <div class="form-group">
+                <label for="name">Zeitraum</label>
+                <input class="form-control" id="name" name="name" readonly th:field="*{name}" type="text">
+            </div>
+            <div class="form-group">
+                <label for="start">Start</label>
+                <input class="form-control" id="start" name="start" readonly th:field="*{startTime}" type="text">
+            </div>
+            <div class="form-group">
+                <label for="end">Ende</label>
+                <input class="form-control" id="end" name="end" readonly th:field="*{endTime}" type="text">
+            </div>
+            <div class="button-row">
+                <button class="button" type="submit">Bestätigen</button>
+            </div>
+        </form>
+        <a th:href="@{/web/timeslots}" class="button" role="button">Zurück</a>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

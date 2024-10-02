@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meine Webseite</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/WABS.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Font Awesome 4-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/sidebar-accordionAdmin.css">
+    <script src="/static/js/sidebar-accordion.js"></script>
+    <script src="/static/js/DropDown.js"></script>
+    <style>
+        body {
+            background-image: url("/static/img/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-barAdmin">
+    <img src="../static/img/LogoWhite.png" alt="Logo" class="logo">
+    <a href="#" class="logout-link">Abmelden</a>
+    <div class="top-bar-header">
+        <h1>W.A.B.S.</h1>
+    </div>
+    <div class="top-bar-sub-header">
+        <h2>Working-Area Booking System</h2>
+    </div>
+</div>
+<!-- Side Navbar -->
+<div class="contenedor-menu">
+    <!-- <a href="" class="btnMenu">Menu <i class="fa fa-bars"></i></a> -->
+
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Bookings <i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a href="#">Work-Area<i class="fa fa-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/web/deskbookings/admin">View All</a></li>
+                        <li><a href="/web/deskbookings/admin/add">Create New</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ressourcen</a></li>
+                <li><a href="#">Räume</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Mitarbeiter</a></li>
+        <li><a href="#">Work-Areas<i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a href="/web/desks">View All</a></li>
+                <li><a href="/web/desks/add">Create New</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Ressourcen</a></li>
+        <li><a href="#">Räume</a></li>
+        <li><a href="#">Zurück</a></li>
+    </ul>
+</div>
+<!-- Content -->
+<div class="content">
+    <!-- Hier kommt der Inhalt der Webseite hin -->
+</div>
+<div class="filler"></div>
+</body>
+</html>

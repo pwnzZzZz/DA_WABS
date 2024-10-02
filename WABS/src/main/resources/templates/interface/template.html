@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>WABS</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/WABS.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Font Awesome 4-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/sidebar-accordion.css">
+    <script src="/static/js/sidebar-accordion.js"></script>
+    <script src="/static/js/DropDown.js"></script>
+    <style>
+        body {
+            background-image: url("/static/img/background2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-bar">
+    <img src="/static/img/LogoWhite.png" alt="Logo" class="logo">
+    <a href="../interface/start.html" target="_self" class="logout-link">Abmelden</a>
+    <div class="top-bar-header">
+        <h1>W.A.B.S.</h1>
+    </div>
+    <div class="top-bar-sub-header">
+        <h2>Working-Area Booking System</h2>
+    </div>
+</div>
+<!-- Side Navbar -->
+<div class="contenedor-menu">
+    <!-- <a href="" class="btnMenu">Menu <i class="fa fa-bars"></i></a> -->
+
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Bookings <i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a href="#">Work-Areas<i class="fa fa-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/web/deskbookings/admin">View All</a></li>
+                        <li><a href="/web/deskbookings/admin/add">Create New</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ressourcen</a></li>
+                <li><a href="#">Räume</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Meine Buchungen <i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a th:href="@{web/deskbookings/mydeskbookings}">Work-Areas</a></li>
+                <li><a href="#">Ressourcen</a></li>
+                <li><a href="#">Räume</a></li>
+                <li><a href="#">Vergangene Buchungen</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Zurück</a></li>
+    </ul>
+</div>
+<!-- Content -->
+<div class="content">
+    <p>Hier kommt der Inhalt der Webseite hin.</p>
+</div>
+
+</body>
+</html>

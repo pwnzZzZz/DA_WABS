@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerEmployee :: headerEmployee" th:with="title='Raumbuchungen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarEmployee :: topbarEmployee"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarEmployee :: navbarEmployee"></div>
+<!-- Content -->
+<!-- Content -->
+<div class="content-container">
+    <div class="allroomContainer">
+        <h1>Meine Raum-Buchungen</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Datum</th>
+                    <th>Startzeit</th>
+                    <th>Endzeit</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="booking : ${bookings}">
+                    <tr>
+                        <td th:text="${booking.id}"></td>
+                        <td th:text="${booking.date}"></td>
+                        <td th:text="${booking.start}"></td>
+                        <td th:text="${booking.endTime}"></td>
+                        <td>
+                            <a th:href="@{'/web/roomBooking/deleteBookingEmployee/' + ${booking.id}}"
+                               class="delete-button" role="button">Löschen</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="buton-row">
+            <a th:href="@{'/web/rooms/allRoomsEmployee'}" class="button" role="button">Buchen</a>
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

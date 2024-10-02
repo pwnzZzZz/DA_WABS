@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerAdmin :: headerAdmin}" th:with="title='Alle Arbeitsplätze'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarAdmin :: topbarAdmin}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarAdmin :: navbarAdmin}"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="subcontainer">
+        <h1>Arbeitsplätze</h1><br><br>
+            <div class="room">
+            </div>
+            <div class="scroll-container">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <table>
+                <thead>
+                <tr>
+                    <th>Arbeitsplatz Id</th>
+                    <th>Arbeitsplatz</th>
+                    <th>Bildschirme</th>
+                    <th>Schnittstelle</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="desk: ${viewAllDesks}">
+                    <td th:text="${desk.id}"></td>
+                    <td th:text="${desk.deskNr}"></td>
+                    <td th:text="${desk.nrOfMonitors}"></td>
+                    <td><p th:each="port : ${desk.ports}" th:text="${port.name}"></p></td>
+                    <td>
+                        <a class="button" role="button" th:href="@{/web/deskbookings/admin/new/{deskId}(deskId=${desk.id})}">Buchen</a>
+                        <a class="button" role="button" th:href="@{/web/desks/view/{id}(id=${desk.id})}">Anzeigen</a>
+                        <a class="button" role="button" th:href="@{/web/desks/update/{id}(id=${desk.id})}">Bearbeiten</a>
+                        <a class="delete-button" role="button" th:href="@{/web/desks/delete/{id}(id=${desk.id})}">Löschen</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="button-row">
+                <a class="button" role="button" th:href="@{/web/desks/add}">Arbeitsplatz Erstellen</a>
+                <button class="delete-button" onclick="goBack()">Zurück</button>
+            </div>
+        </div>
+    </div>
+<div class="filler"></div>
+</body>
+</html>

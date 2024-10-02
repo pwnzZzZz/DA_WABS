@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Arbeitsplatzbuchung Löschen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatzbuchung Löschen</h1><br><br>
+            <form method="post" th:action="@{/web/deskbookings/admin/cancel}"  th:object="${booking}">
+                <p class="form-text text-muted" style="color: red;" id="employeeHelp">Sind Sie sicher, dass Sie die folgende Arbeitsplatz-Buchung löschen wollen:</p>
+                <br>
+                <div class="form-group">
+                    <label class="form-label" for="employee">Mitarbeiter:in</label>
+                    <input class="form-control" id="employee" name="employee" readonly
+                           th:value="${booking.employee.fname} + ' '+ ${booking.employee.lname}" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="deskNr">Arbeitsplatz/label>
+                    <input class="form-control" id="deskNr" name="deskNr" readonly
+                           th:field="${booking.desk.deskNr}" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="date">Datum</label>
+                    <input class="form-control" id="date" name="date" readonly
+                           th:value="${#temporals.format(booking.date, 'dd-MM-YYYY')}" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="start">Start</label>
+                    <input class="form-control" id="start" name="start" readonly th:field="${booking.start}"
+                           type="text">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="end">Ende</label>
+                    <input class="form-control" id="end" name="end" readonly th:field="${booking.endTime}"
+                           type="text">
+                </div>
+                <div class="button-row">
+                    <button class="button" type="submit">Bestätigen</button>
+                </div>
+            </form>
+        <div class="button-row">
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

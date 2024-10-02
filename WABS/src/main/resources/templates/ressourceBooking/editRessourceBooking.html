@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Ressourcen-Buchung bearbeiten'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Ressourcen-Buchung bearbeiten</h1><br><br>
+
+        <div th:if="${errorMessage}" class="alert alert-danger error-message">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <div class="scroll-container">
+            <form th:object="${updateBooking}" th:action="@{/web/ressourceBooking/updateBooking}" method="post">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Kategorie</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${updateBooking.ressource.id}"></td>
+                        <td th:text="${updateBooking.ressource.name}"></td>
+                        <td th:text="${updateBooking.ressource.ressourcetype}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <input type="hidden" id="employee" name="employee" th:value="${updateBooking.employee.id}">
+                    <input type="hidden" id="ressource" name="ressource" th:value="${updateBooking.ressource.id}">
+                    <input type="hidden" id="id" name="id" th:value="${updateBooking.id}">
+                </div>
+                <div class="form-group">
+                    <label for="date">Datum:</label>
+                    <input class="form-control" id="date" name="date"
+                           th:field="*{date}"
+                           th:value="*{#dates.format(#dates.createNow(), 'dd.MM.yyyy')}" type="date" required/>
+
+                    <label for="start">Startzeit:</label>
+                    <select id="start" name="start" class="form-control" required>
+                        <option disabled selected value>---Bitte Auswählen---</option> <!--disabled= nicht auswählbar, selected= standardmäßig ausgewählt, value= Leerer Wert-->
+                        <option value="00:00">00:00</option>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                    </select>
+
+                    <label for="endTime">Endzeit:</label>
+                    <select id="endTime" name="endTime" class="form-control" required>
+                        <option disabled selected value>---Bitte Auswählen---</option> <!--disabled= nicht auswählbar, selected= standardmäßig ausgewählt, value= Leerer Wert-->
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                </div>
+                <div class="button-row">
+                    <button type="submit" class="button">Senden</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

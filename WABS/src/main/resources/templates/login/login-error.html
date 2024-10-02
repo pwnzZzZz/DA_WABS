@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Error</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/../static/css/WABS.css">
+    <style>
+        body {
+            background-image: url('/../static/img/background.jpg');
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            overflow: hidden;
+        }
+
+        .back-container {
+            position: absolute;
+            top: 16%;
+            left: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .back-container {
+                top: 5%;
+                left: 2%;
+            }
+        }
+
+        .back-box {
+            width: 80px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            background-color: #96c01e;
+        }
+
+        .back-box:hover {
+            background-color: #3b3b3b;
+        }
+
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .error-message {
+            font-size: 24px;
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            background-color: #96c01e;
+        }
+
+        .back-button:hover {
+            background-color: #3b3b3b;
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <h1 class="error-message">Benutzername oder Passwort falsch</h1>
+    <div class="button-container">
+        <button class="back-button" onclick="goBack()">Zurück</button>
+    </div>
+</div>
+</body>
+</html>

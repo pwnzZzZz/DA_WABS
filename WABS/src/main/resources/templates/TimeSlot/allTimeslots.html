@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Alle Arbeitsplätze'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="subcontainer">
+        <h1>Arbeitsplätze</h1><br><br>
+        <div class="scroll-container">
+           <div class="alert alert-danger" role="alert" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Zeitraum Id</th>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>Ende</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="timeslot: ${viewAllTimeslots}">
+                    <td th:text="${timeslot.id}"></td>
+                    <td th:text="${timeslot.startTime}"></td>
+                    <td th:text="${timeslot.endTime}"></td>
+                    <td>
+                        <a class="button" role="button" th:href="@{/web/timeslot/view/{id}(id=${timeslot.id})}">Detailansicht</a>
+                        <a class="button" role="button" th:href="@{/web/timeslot/update/{id}(id=${timeslot.id})}">Bearbeiten</a>
+                        <a class="delete-button" role="button" th:href="@{/web/timeslot/delete/{id}(id=${timeslot.id})}">Löschen</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-row">
+            <a class="button" role="button" th:href="@{/web/timeslots/add}">Neue Zeitraum Erstellen</a>-->
+            <button class="delete-button" onclick="goBack()">Zurück</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

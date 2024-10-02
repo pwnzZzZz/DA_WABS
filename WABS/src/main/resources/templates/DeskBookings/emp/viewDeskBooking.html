@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerEmployee :: headerEmployee}" th:with="title='Arbeitsplatz Buchen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarEmployee :: topbarEmployee}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarEmployee :: navbarEmployee}"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatzbuchung Details</h1><br><br>
+            <form method="get" th:action="@{/web/deskbookings/view/{id}}" th:object="${myDeskBooking}">
+                <div th:if="${errorMessage}" class="alert alert-danger error-message">
+                    <p th:text="${errorMessage}"></p>
+                </div>
+                <div class="form-group">
+                    <label for="employee">Mitarbeiter:in</label>
+                    <input class="form-control" id="employee" name="employee" readonly
+                           th:value="${myDeskBooking.employee.fname} + ' '+ ${myDeskBooking.employee.lname}"
+                           type="text">
+
+                    <label for="deskNr">Arbeitsplatz Nummer</label>
+                    <input class="form-control" id="deskNr" name="deskNr" readonly
+                           th:field="${myDeskBooking.desk.deskNr}" type="text">
+
+                    <label for="date">Datum</label>
+                    <input class="form-control" id="date" name="date" readonly
+                           th:value="${#temporals.format(myDeskBooking.date, 'dd-MM-YYYY')}" type="text">
+
+                    <label for="start">Start</label>
+                    <input class="form-control" id="start" name="start" readonly th:field="${myDeskBooking.start}"
+                           type="text">
+
+                    <label for="end">Ende</label>
+                    <input class="form-control" id="end" name="end" readonly th:field="${myDeskBooking.endTime}"
+                           type="text">
+                </div>
+                <div class="button-row">
+                    <button class="delete-button" type="button" onclick="goBack()">Zurück</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

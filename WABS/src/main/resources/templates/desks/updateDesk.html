@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Arbeitsplatz aktualisieren'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<h1>Arbeitsplatz Bearbeiten</h1><br><br>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <form method="post" th:action="@{/web/desks/update}" th:object="${updatedDesk}">
+            <div class="form-group">
+                <label for="id">Arbeitsplatz ID</label>
+                <input class="form-control" id="id" name="id" readonly th:field="*{id}" type="text">
+                <div class="form-text" th:errorclass="errors" th:errors="*{id}"
+                     th:if="${#fields.hasErrors('id')}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="deskNr">Arbeitsplatz Nummer</label>
+                <small style="color: #96c01e;">Geben Sie die Nummer der Arbeitsplatz ein</small>
+                <input class="form-control" id="deskNr" name="deskNr" th:field="*{deskNr}" type="text">
+                <div class="form-text" th:errorclass="errors" th:errors="*{deskNr}"
+                     th:if="${#fields.hasErrors('deskNr')}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nrOfMonitors">Bildschirme</label>
+                <small style="color: #96c01e;">Geben Sie die Anzahl der Monitore ein (zwischen 1 und 10)</small>
+                <input class="form-control" id="nrOfMonitors" name="nrOfMonitors" th:field="*{nrOfMonitors}" type="text">
+                <div class="form-text" th:errorclass="errors" th:errors="*{nrOfMonitors}"
+                     th:if="${#fields.hasErrors('nrOfMonitors')}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ports">Schnittstellen</label>
+                <small style="color: #96c01e;">Verfügbare Schnittstellen (durch ein Komma getrennt):</small>
+                <input class="form-control" id="ports" name="ports" th:field="*{ports}" type="text">
+                <div class="form-text" th:errorclass="errors" th:errors="*{ports}" th:if="${#fields.hasErrors('ports')}"></div>
+            </div>
+            <div class="button-row">
+                <button class="button" type="submit">Bearbeiten</button>
+                <button class="delete-button" onclick="goBack()">Zurück</button>
+            </div>
+        </form>
+    </div>
+    <div class="filler"></div>
+</div>
+</body>
+</html>

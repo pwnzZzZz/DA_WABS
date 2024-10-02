@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="headerAdmin :: headerAdmin" th:with="title='Ressource hinzufügen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarAdmin :: topbarAdmin"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarAdmin :: navbarAdmin"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Ressource hinzufügen</h1><br><br>
+        <div class="scroll-container">
+            <form th:action="@{/web/ressource/addRessource}" th:object="${newRessource}" method="post">
+                <!--zuerst objekt holen, mapping wohin, übertragungsmethode-->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="ressourcetype">Kategorie:</label>
+                    <select name="ressourcetype" id="ressourcetype" class="form-control">
+                        <option disabled selected value>---Bitte Auswählen---</option> <!--disabled= nicht auswählbar, selected= standardmäßig ausgewählt, value= Leerer Wert-->
+                        <!--<option th:each="ressource : ${newRessource.ressourcetype}"
+                                th:value="${ressource}" th:text="${ressource}">-->
+                        <option th:each="type : ${T(com.itkolleg.bookingsystem.domains.Ressourcetype).values()}"
+                                th:value="${type}" th:text="${type}"
+                                th:selected="${type == newRessource.ressourcetype}">
+                        </option>
+                        <!-- Testung muss noch durchgeführt werden-->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Beschreibung:</label>
+                    <textarea class="form-control" id="description" name="description"
+                              th:field="*{description}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="info">Info:</label>
+                    <input type="text" class="form-control" id="info" name="info" th:field="*{info}">
+                </div>
+                <div class="form-group">
+                    <label for="serialnumber">Seriennummer:</label>
+                    <input type="text" class="form-control" id="serialnumber" name="serialnumber"
+                           th:field="*{serialnumber}" required>
+                </div>
+                <div class="button-row">
+                    <button type="submit" class="button">Senden</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

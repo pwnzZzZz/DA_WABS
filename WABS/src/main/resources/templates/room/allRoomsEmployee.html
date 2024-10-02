@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<div th:insert="headerEmployee :: headerEmployee" th:with="title='Liste aller Räume'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="topbarEmployee :: topbarEmployee"></div>
+<!-- Side Navbar -->
+<div th:insert="navbarEmployee :: navbarEmployee"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="allroomContainer">
+        <h1>Raumliste</h1><br><br>
+        <div class="scroll-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Stockwerk</th>
+                    <th>Aktion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="room : ${roomsEmployee}">
+                    <tr>
+                        <td th:text="${room.id}"></td>
+                        <td th:text="${room.floor}"></td>
+                        <td>
+                            <a th:href="@{'/web/roomBooking/createBookingEmployee/' + ${room.id}}" class="button"
+                               role="button">Buchen</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

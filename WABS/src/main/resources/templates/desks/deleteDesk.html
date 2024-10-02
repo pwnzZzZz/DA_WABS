@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerAdmin :: headerAdmin}" th:with="title='Arbeitsplatz Löschen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarAdmin :: topbarAdmin}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarAdmin :: navbarAdmin}"></div>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatz Löschen</h1><br><br>
+        <form method="post" th:action="@{/web/desks/delete/{id}(id=${desk.id})}" th:object="${desk}">
+            <p>Sind Sie sicher, dass Sie den folgenden Arbeitsplatz löschen wollen:</p>
+            <div th:if="${errorMessage}" class="alert alert-danger error-message">
+                <p th:text="${errorMessage}"></p>
+            </div>
+                <div class="form-group">
+                    <label for="deskNr">Arbeitsplatz</label>
+                    <input class="form-control" id="deskNr" name="deskNr" readonly th:field="*{deskNr}" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="nrOfMonitors">Bildschirme</label>
+                    <input class="form-control" id="nrOfMonitors" name="nrOfMonitors" readonly
+                           th:field="*{nrOfMonitors}" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="ports">Schnittstellen</label>
+                    <div th:each="port : ${desk.ports}" id="ports">
+                        <span th:text="${port}"></span>
+                        <br>
+                    </div>
+                </div>
+            <div class="button-row">
+                <button class="button" type="submit">Bestätigen</button>
+            </div>
+        </form>
+        <button class="delete-button" onclick="goBack()">Zurück</button>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

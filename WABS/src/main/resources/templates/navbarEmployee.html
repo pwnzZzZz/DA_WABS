@@ -1,0 +1,32 @@
+<div class="contenedor-menu" th:fragment="navbarEmployee">
+    <!-- <a href="" class="btnMenu">Menu <i class="fa fa-bars"></i></a> -->
+
+    <ul class="menu">
+        <li><a th:href="@{/web/user/start}">Home</a></li>
+        <li><a href="#">Buchungen<i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a th:href="@{/web/deskbookings/add}">Arbeitsplätze</a></li>
+                <li><a th:href="@{/web/ressource/allRessourcesEmployee}">Ressourcen</a></li>
+                <li><a th:href="@{/web/rooms/allRoomsEmployee}">Räume</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Meine Buchungen <i class="fa fa-chevron-down"></i></a>
+            <ul>
+                <li><a th:href="@{/web/deskbookings/mydeskbookings}">Arbeitsplätze</a></li>
+                <li><a th:href="@{/web/ressourceBooking/allBookingsEmployee}">Ressourcen</a></li>
+                <li><a th:href="@{/web/roomBooking/allBookingsEmployee}">Räume</a></li>
+            </ul>
+        <li><a href="#">Stockwerke<i class="fa fa-chevron-down"></i></a>
+        <ul>
+            <li><a th:href="@{/web/rooms/floorsEmployee}">Stockwerk 1</a></li>
+            <li><a th:href="@{/web/user/start}">Stockwerk 2 (W.I.P.)</a></li>
+        </ul>
+        <li><a href="#">Vergangene Buchungen<i class="fa fa-chevron-down"></i></a>
+        <ul>
+            <li><a href="@{/web/deskbookings/deskbookinghistory}">Arbeitsplätze (W.I.P)</a></li>
+            <li><a href="@{/web/ressource/allRessourcesEmployee}">Ressourcen (W.I.P)</a></li>
+            <li><a href="@{/web/rooms/allRoomsEmployee}">Räume (W.I.P)</a></li>
+        </ul>
+        </li>
+    </ul>
+</div>

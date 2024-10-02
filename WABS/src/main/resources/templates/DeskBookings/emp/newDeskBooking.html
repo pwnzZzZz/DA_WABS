@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerEmployee :: headerEmployee}" th:with="title='Arbeitsplatz Buchen'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarEmployee :: topbarEmployee}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarEmployee :: navbarEmployee}"></div>
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatz Buchen</h1><br><br>
+        <form method="post" th:action="@{/web/deskbookings/new}" th:object="${deskBooking}">
+            <div th:if="${errorMessage}" class="alert alert-danger error-message">
+                <p th:text="${errorMessage}"></p>
+            </div>
+            <div class="form-group">
+                <label for="deskNr">Arbeitsplatz *</label>
+                <input id="deskNr" name="deskNr" readonly
+                       th:field="${desk.deskNr}" type="text">
+                <div class="form-text"
+                     th:errors="*{desk.deskNr}"
+                     style="color: red;"
+                     th:if="${#fields.hasErrors('desk.deskNr')}"></div>
+            </div>
+
+            <input type="hidden" id="desk.id" name="desk.id" th:field="*{desk.id}"/>
+            <div class="form-group">
+                <label class="form-label" for="date">Datum</label>
+                <input class="form-control" id="date" name="bookingStart"
+                       th:field="*{date}"
+                       th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" type="date"/>
+                <div class="form-text"
+                     th:errors="*{date}"
+                     th:if="${#fields.hasErrors('date')}"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="start">Start</label>
+                <select class="form-select" id="start" name="start" th:field="*{start}">
+                    <option value="">--Select Start Time--</option>
+                    <option th:each="time : ${startTimes}"
+                            th:text="${time}"
+                            th:value="${time}"></option>
+                </select>
+                <div class="form-text"
+                     th:errors="*{start}"
+                     th:if="${#fields.hasErrors('start')}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="end">Ende</label>
+                <select class="form-select" id="end" name="end" th:field="*{endTime}">
+                    <option value="">--Select End Time--</option>
+                    <option th:each="time : ${endTimes}"
+                            th:text="${time}"
+                            th:value="${time}"></option>
+                </select>
+                <div class="form-text"
+                     th:errors="*{endTime}"
+                     th:if="${#fields.hasErrors('endTime')}"></div>
+            </div>
+            <button type="submit" class="button">Buchen</button>
+        </form>
+        <button class="delete-button" type="button" onclick="goBack()">Abbrechen<</button>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

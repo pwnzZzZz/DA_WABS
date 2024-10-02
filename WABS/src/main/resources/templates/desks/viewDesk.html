@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{headerAdmin :: headerAdmin}" th:with="title='Arbeitsplatz Details'"></div>
+<body>
+<!-- Top Bar -->
+<div th:insert="~{topbarAdmin :: topbarAdmin}"></div>
+<!-- Side Navbar -->
+<div th:insert="~{navbarAdmin :: navbarAdmin}"></div>
+<!-- Content -->
+<div class="content-container">
+    <div class="addRessourceContainer">
+        <h1>Arbeitsplatz</h1><br><br>
+        <div class="scroll-container">
+            <div class="form-group">
+                <form method="get" th:action="@{/web/desks/view/{id}}" th:object="${myDesk}">
+                    <div class="form-group">
+                        <label for="deskNr">Arbeitsplatz</label>
+                        <input class="form-control" id="deskNr" name="deskNr" readonly th:field="*{deskNr}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="nrOfMonitors">Bildschirme</label>
+                        <input class="form-control" id="nrOfMonitors" name="nrOfMonitors" readonly
+                               th:field="*{nrOfMonitors}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="ports">Schnittstellen</label>
+                        <div th:each="port : ${myDesk.ports}" id="ports">
+                            <span th:text="${port}"></span>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button class="delete-button" onclick="goBack()">Zurück</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="filler"></div>
+</body>
+</html>

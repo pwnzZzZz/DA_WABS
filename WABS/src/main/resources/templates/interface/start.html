@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        body {
+
+            background-image: url('/../static/img/background.jpg');
+
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 80px;
+            margin: 0;
+        }
+
+        .header h2 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 180px);
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: auto;
+        }
+
+        .login-box, .register-box {
+            width: 25%;
+            height: 100px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .login-box {
+            background-color: #96c01e;
+        }
+
+        .register-box {
+            background-color: #00b8eb;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>W.A.B.S.</h1>
+    <h2>Work-Area Booking System</h2>
+</div>
+<div class="container box-container">
+    <a href="login.html" class="login-box">
+        <img class="logo" src="../static/img/LogoWhite.png">
+        Login
+    </a>
+    <a href="registry.html" class="register-box">
+        <img class="logo" src="../static/img/LogoWhite.png">
+        Register
+    </a>
+</div>
+</body>
+</html>
